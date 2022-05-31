@@ -21,12 +21,12 @@ export interface UsageRequest extends BaseRequest {
 export interface UsageResponse extends BaseResponse {
     types: [
         {
-            type: string;
+            typeName: string;
             displayName: string;
             from: string;
             to: string;
             usageAmount: number;
-            valid_usage: boolean;
+            validUsage: boolean;
         }
     ];
 }

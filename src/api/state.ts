@@ -74,6 +74,36 @@ export function useDeactivateSubscription (request: SubscriptionDeactivateReques
 
 // END DEACTIVATE SUBSCRIPTION
 
-// CURRENT SUBSCRIPTION STATE
+// SUBSCRIPTION SUMMARY (current state)
 
-// END CURRENT SUBSCRIPTION STATE
+export interface SubscriptionSummaryRequest extends BaseRequest {
+    accountID: string;
+}
+
+export interface SubscriptionSummaryResponse extends BaseResponse {
+    state: string;
+    subscriptionID: string;
+    reportFrequency: string;
+    lastProcessed: string;
+}
+
+export async function getSubscriptionSummary (client: AxiosInstance, request: SubscriptionSummaryRequest, config?: AxiosRequestConfig) {
+    const { accountID, ...rest } = request;
+    const resp = await client.get<SubscriptionSummaryResponse>(`/${accountID}/summary`, {
+        ...config,
+        params: {
+            ...rest,
+            ...config?.params,
+        },
+    });
+    return resp.data;
+}
+
+export const GET_SUBSCRIPTION_SUMMARY_QUERY_KEY: QueryKey = `getSubscriptionSummary`;
+
+export function useGetSubscriptionSummary (request: SubscriptionDeactivateRequest, options?: RequestConfigQueryOptions<SubscriptionDeactivateResponse>) {
+    const { axiosClient } = useSubscriptionsApiClient();
+    return useQuery([ GET_SUBSCRIPTION_SUMMARY_QUERY_KEY, request ], () => getSubscriptionSummary(axiosClient, request, options?.config), options?.queryOptions);
+}
+
+// END SUBSCRIPTION SUMMARY
