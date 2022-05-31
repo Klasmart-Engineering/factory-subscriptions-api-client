@@ -1,0 +1,44 @@
+{
+    "compilerOptions": {
+        "allowSyntheticDefaultImports": true,
+        "declaration": true,
+        "declarationDir": "dist",
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "jsx": "react",
+        "lib": [
+            "DOM",
+            "DOM.Iterable",
+            "ESNext",
+            "ES6",
+            "ScriptHost",
+        ],
+        "module": "commonjs",
+        "noEmit": false,
+        "noImplicitAny": true,
+        "outDir": "dist",
+        "removeComments": true,
+        "rootDir": "./src",
+        "skipLibCheck": true,
+        "strict": true,
+        "target": "ES6",
+        "resolveJsonModule": true,
+        "moduleResolution": "node",
+        "types": [
+            "react",
+            "node"
+        ]
+    },
+    "include": [
+        ".*.js",
+        ".*.ts",
+        "**/*.js",
+        "**/*.jsx",
+        "**/*.ts",
+        "**/*.tsx"
+    ],
+    "exclude": [
+        "dist",
+        "node_modules"
+    ]
+}

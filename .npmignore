@@ -1,0 +1,9 @@
+.eslintrc.js
+.github
+.husky
+.versionrc.js
+.eslintignore
+commitlint.config.js
+package-lock.json
+tsconfig.json
+node_modules

@@ -1,0 +1,44 @@
+{
+  "name": "@kl-engineering/factory-subscriptions-api-client",
+  "version": "0.0.0",
+  "description": "Factory subscriptions API client",
+  "scripts": {
+    "build": "tsc",
+    "release": "standard-version",
+    "lint": "eslint .",
+    "prepare": "husky install"
+  },
+  "main": "dist/main.js",
+  "types": "dist/main.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KL-Engineering/factory-subscriptions-api-client.git"
+  },
+  "author": "KidsLoop",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KL-Engineering/factory-subscriptions-api-client/issues"
+  },
+  "homepage": "https://github.com/KL-Engineering/factory-subscriptions-api-client#readme",
+  "devDependencies": {
+    "@commitlint/cli": "16.2.3",
+    "@commitlint/config-conventional": "16.2.1",
+    "@kl-engineering/eslint-config": "^2.1.0",
+    "@rushstack/eslint-patch": "~1.1.3",
+    "eslint": "8.16.0",
+    "husky": "^8.0.1",
+    "standard-version": "9.3.2",
+    "ts-node": "10.8.0",
+    "typescript": "4.6.4"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0 || ^17.0.0 || ^18.0.0"
+  },
+  "dependencies": {
+    "axios": "0.27.2",
+    "react-query": "3.39.0"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  }
+}
