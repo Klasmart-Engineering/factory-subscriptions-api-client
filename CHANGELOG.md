@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.3](https://github.com/KL-Engineering/factory-subscriptions-api-client/branches/compare/v0.0.3%0Dv0.0.1) (2022-05-31)
+
+
+### ♻️ Chores
+
+* **release:** 0.0.2 ([0648daa](https://github.com/KL-Engineering/factory-subscriptions-api-client/commits/0648daa48f1e61d070bc8a8f612e880d9be2559c))
+
+
+### 🐛 Bug Fixes
+
+* undo private flag ([c05c2e6](https://github.com/KL-Engineering/factory-subscriptions-api-client/commits/c05c2e6b16985f43232627b9b369644d32080ac2))
+
 ### [0.0.2](https://github.com/KL-Engineering/factory-subscriptions-api-client/branches/compare/v0.0.2%0Dv0.0.1) (2022-05-31)
 
 ### 0.0.1 (2022-05-31)
