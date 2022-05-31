@@ -2,7 +2,6 @@
   "name": "@kl-engineering/factory-subscriptions-api-client",
   "version": "0.0.2",
   "description": "Factory subscriptions API client",
-  "private": true,
   "scripts": {
     "build": "tsc",
     "release": "standard-version",
