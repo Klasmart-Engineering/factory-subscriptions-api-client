@@ -14,7 +14,7 @@ import {
     useQuery,
 } from "react-query";
 
-// ACTIVATE SUBSCRIPTION
+// #region ACTIVATE SUBSCRIPTION
 
 export interface SubscriptionActivateRequest extends BaseRequest {
     accountID: string;
@@ -42,9 +42,9 @@ export function useActivateSubscription (request: SubscriptionActivateRequest, o
     return useQuery([ PUT_SUBSCRIPTION_ACTIVATE_QUERY_KEY, request ], () => activateSubscription(axiosClient, request, options?.config), options?.queryOptions);
 }
 
-// END ACTIVATE SUBSCRIPTION
+// #endregion ACTIVATE SUBSCRIPTION
 
-// DEACTIVATE SUBSCRIPTION
+// #region DEACTIVATE SUBSCRIPTION
 
 export interface SubscriptionDeactivateRequest extends BaseRequest {
     accountID: string;
@@ -72,9 +72,9 @@ export function useDeactivateSubscription (request: SubscriptionDeactivateReques
     return useQuery([ PUT_SUBSCRIPTION_DEACTIVATE_QUERY_KEY, request ], () => deactivateSubscription(axiosClient, request, options?.config), options?.queryOptions);
 }
 
-// END DEACTIVATE SUBSCRIPTION
+// #endregion DEACTIVATE SUBSCRIPTION
 
-// SUBSCRIPTION SUMMARY (current state)
+// #region SUBSCRIPTION SUMMARY (current state)
 
 export interface SubscriptionSummaryRequest extends BaseRequest {
     accountID: string;
@@ -106,4 +106,4 @@ export function useGetSubscriptionSummary (request: SubscriptionDeactivateReques
     return useQuery([ GET_SUBSCRIPTION_SUMMARY_QUERY_KEY, request ], () => getSubscriptionSummary(axiosClient, request, options?.config), options?.queryOptions);
 }
 
-// END SUBSCRIPTION SUMMARY
+// #endregion SUBSCRIPTION SUMMARY
