@@ -24,7 +24,7 @@ export interface HealthResponse extends BaseResponse {
 }
 
 export async function getHealth (client: AxiosInstance, request: HealthRequest, config?: AxiosRequestConfig) {
-    const resp = await client.get<HealthResponse>(`__health`, {
+    const resp = await client.get<HealthResponse>(`/__health`, {
         ...config,
         params: {
             ...request,

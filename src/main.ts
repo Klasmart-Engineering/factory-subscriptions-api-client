@@ -5,17 +5,26 @@ export {
     useGetHealth,
 } from "./api/health";
 export {
-    SubscriptionActivateRequest,
-    SubscriptionActivateResponse,
-    SubscriptionDeactivateRequest,
-    SubscriptionDeactivateResponse,
-    useActivateSubscription,
-    useDeactivateSubscription,
-} from "./api/state";
+    DeleteSubscriptionRequest,
+    DeleteSubscriptionResponse,
+    GetSubscriptionRequest,
+    GetSubscriptionResponse,
+    PatchSubscriptionRequest,
+    PatchSubscriptionResponse,
+    useDeleteSubscription,
+    useGetSubscription,
+    usePatchSubscription,
+} from "./api/subscription";
 export {
-    UsageRequest,
-    UsageResponse,
-    useGetUsage,
+    GetSubscriptionUsageReportByIdRequest,
+    GetSubscriptionUsageReportByIdResponse,
+    GetSubscriptionUsageReportsRequest,
+    GetSubscriptionUsageReportsResponse,
+    PatchSubscriptionUsageReportByIdRequest,
+    PatchSubscriptionUsageReportByIdResponse,
+    useGetSubscriptionUsageReportById,
+    useGetSubscriptionUsageReports,
+    usePatchSubscriptionUsageReportById,
 } from "./api/usage";
 export {
     SubscriptionsApiClientProvider,

@@ -14,26 +14,23 @@ import {
     useQuery,
 } from "react-query";
 
-export interface UsageRequest extends BaseRequest {
-    accountID: string;
+// #region /GET /subscriptions/{subscriptionId}/usage-reports
+
+export interface GetSubscriptionUsageReportsRequest extends BaseRequest {
+    subscriptionId: string;
 }
 
-export interface UsageResponse extends BaseResponse {
-    types: [
-        {
-            typeName: string;
-            displayName: string;
-            from: string;
-            to: string;
-            usageAmount: number;
-            validUsage: boolean;
-        }
-    ];
+export interface GetSubscriptionUsageReportsResponse extends BaseResponse {
+    reports: {
+          id: string;
+          from: number;
+          to: number;
+    }[];
 }
 
-export async function getUsage (client: AxiosInstance, request: UsageRequest, config?: AxiosRequestConfig) {
-    const { accountID, ...rest } = request;
-    const resp = await client.get<UsageResponse>(`/${accountID}/usage`, {
+export async function getSubscriptionUsageReports (client: AxiosInstance, request: GetSubscriptionUsageReportsRequest, config?: AxiosRequestConfig) {
+    const { subscriptionId, ...rest } = request;
+    const resp = await client.get<GetSubscriptionUsageReportsResponse>(`/subscriptions/${subscriptionId}/usage-reports`, {
         ...config,
         params: {
             ...rest,
@@ -43,9 +40,90 @@ export async function getUsage (client: AxiosInstance, request: UsageRequest, co
     return resp.data;
 }
 
-export const GET_USAGE_QUERY_KEY: QueryKey = `getUsage`;
+export const GET_SUBSCRIPRTION_USAGE_REPORTS_QUERY_KEY: QueryKey = `getSubscriptionUsageReports`;
 
-export function useGetUsage (request: UsageRequest, options?: RequestConfigQueryOptions<UsageResponse>) {
+export function useGetSubscriptionUsageReports (request: GetSubscriptionUsageReportsRequest, options?: RequestConfigQueryOptions<GetSubscriptionUsageReportsResponse>) {
     const { axiosClient } = useSubscriptionsApiClient();
-    return useQuery([ GET_USAGE_QUERY_KEY, request ], () => getUsage(axiosClient, request, options?.config), options?.queryOptions);
+    return useQuery([ GET_SUBSCRIPRTION_USAGE_REPORTS_QUERY_KEY, request ], () => getSubscriptionUsageReports(axiosClient, request, options?.config), options?.queryOptions);
 }
+
+// #endregion /GET /subscriptions/{subscriptionId}/usage-reports
+
+// #region /GET /subscriptions/{subscriptionId}/usage-reports/{usageReportId}
+
+export interface GetSubscriptionUsageReportByIdRequest extends BaseRequest {
+    subscriptionId: string;
+    usageReportId: string;
+}
+
+export interface GetSubscriptionUsageReportByIdResponse extends BaseResponse {
+    id: string;
+    from: number;
+    to: number;
+    report_completed_at: number;
+    state: string;
+    products: {
+        [key: string]: number;
+    };
+}
+
+export async function getSubscriptionUsageReportById (client: AxiosInstance, request: GetSubscriptionUsageReportByIdRequest, config?: AxiosRequestConfig) {
+    const {
+        subscriptionId,
+        usageReportId,
+        ...rest
+    } = request;
+    const resp = await client.get<GetSubscriptionUsageReportByIdResponse>(`/subscriptions/${subscriptionId}/usage-reports/${usageReportId}`, {
+        ...config,
+        params: {
+            ...rest,
+            ...config?.params,
+        },
+    });
+    return resp.data;
+}
+
+export const GET_SUBSCRIPRTION_USAGE_REPORT_BY_ID_QUERY_KEY: QueryKey = `getSubscriptionUsageReportById`;
+
+export function useGetSubscriptionUsageReportById (request: GetSubscriptionUsageReportByIdRequest, options?: RequestConfigQueryOptions<GetSubscriptionUsageReportByIdResponse>) {
+    const { axiosClient } = useSubscriptionsApiClient();
+    return useQuery([ GET_SUBSCRIPRTION_USAGE_REPORT_BY_ID_QUERY_KEY, request ], () => getSubscriptionUsageReportById(axiosClient, request, options?.config), options?.queryOptions);
+}
+
+// #endregion /GET /subscriptions/{subscriptionId}/usage-reports/{usageReportId}
+
+// #region /PATCH /subscriptions/{subscriptionId}/usage-reports/{usageReportId}
+
+export interface PatchSubscriptionUsageReportByIdRequest extends BaseRequest {
+    subscriptionId: string;
+    usageReportId: string;
+}
+
+export interface PatchSubscriptionUsageReportByIdResponse extends BaseResponse {
+    state: string;
+}
+
+export async function patchSubscriptionUsageReportById (client: AxiosInstance, request: PatchSubscriptionUsageReportByIdRequest, config?: AxiosRequestConfig) {
+    const {
+        subscriptionId,
+        usageReportId,
+        ...rest
+    } = request;
+    const resp = await client.patch<PatchSubscriptionUsageReportByIdResponse>(`/subscriptions/${subscriptionId}/usage-reports/${usageReportId}`, {
+        ...config,
+        params: {
+            ...rest,
+            ...config?.params,
+        },
+    });
+    return resp.data;
+}
+
+export const PATCH_SUBSCRIPRTION_USAGE_REPORT_BY_ID_QUERY_KEY: QueryKey = `patchSubscriptionUsageReportById`;
+
+export function usePatchSubscriptionUsageReportById (request: PatchSubscriptionUsageReportByIdRequest, options?: RequestConfigQueryOptions<PatchSubscriptionUsageReportByIdResponse>) {
+    const { axiosClient } = useSubscriptionsApiClient();
+    return useQuery([ PATCH_SUBSCRIPRTION_USAGE_REPORT_BY_ID_QUERY_KEY, request ], () => patchSubscriptionUsageReportById(axiosClient, request, options?.config), options?.queryOptions);
+}
+
+// #endregion /PATCH /subscriptions/{subscriptionId}/usage-reports/{usageReportId}
