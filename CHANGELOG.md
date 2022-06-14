@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.4](https://github.com/KL-Engineering/factory-subscriptions-api-client/branches/compare/v0.0.4%0Dv0.0.3) (2022-06-14)
+
+
+### ♻️ Chores
+
+* add state code folding ([5dc380f](https://github.com/KL-Engineering/factory-subscriptions-api-client/commits/5dc380f592e023f47b6eb0aa5c15526704ef7df9))
+
+
+### 📦 Refactor
+
+* update endpoints ([84f3f3f](https://github.com/KL-Engineering/factory-subscriptions-api-client/commits/84f3f3fb9bae58d69bc9bdda5897b8742285afa9))
+
 ### [0.0.3](https://github.com/KL-Engineering/factory-subscriptions-api-client/branches/compare/v0.0.3%0Dv0.0.1) (2022-05-31)
 
 
