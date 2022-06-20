@@ -14,6 +14,12 @@ import {
     useQuery,
 } from "react-query";
 
+export enum UsageReportState {
+    PROCESSING = `processing`,
+    READY = `ready`,
+    NOT_REQUESTED = `not_requested`
+}
+
 // #region /GET /subscriptions/{subscriptionId}/usage-reports
 
 export interface GetSubscriptionUsageReportsRequest extends BaseRequest {
@@ -97,10 +103,11 @@ export function useGetSubscriptionUsageReportById (request: GetSubscriptionUsage
 export interface PatchSubscriptionUsageReportByIdRequest extends BaseRequest {
     subscriptionId: string;
     usageReportId: string;
+    state: UsageReportState;
 }
 
 export interface PatchSubscriptionUsageReportByIdResponse extends BaseResponse {
-    state: string;
+    state: UsageReportState;
 }
 
 export async function patchSubscriptionUsageReportById (client: AxiosInstance, request: PatchSubscriptionUsageReportByIdRequest, config?: AxiosRequestConfig) {
@@ -123,7 +130,14 @@ export const PATCH_SUBSCRIPRTION_USAGE_REPORT_BY_ID_QUERY_KEY: QueryKey = `patch
 
 export function usePatchSubscriptionUsageReportById (request: PatchSubscriptionUsageReportByIdRequest, options?: RequestConfigQueryOptions<PatchSubscriptionUsageReportByIdResponse>) {
     const { axiosClient } = useSubscriptionsApiClient();
-    return useQuery([ PATCH_SUBSCRIPRTION_USAGE_REPORT_BY_ID_QUERY_KEY, request ], () => patchSubscriptionUsageReportById(axiosClient, request, options?.config), options?.queryOptions);
+    return useQuery([
+        PATCH_SUBSCRIPRTION_USAGE_REPORT_BY_ID_QUERY_KEY,
+        request,
+        {
+            refetchOnWindowFocus: false,
+            enabled: false, // disable this query from automatically running
+        },
+    ], () => patchSubscriptionUsageReportById(axiosClient, request, options?.config), options?.queryOptions);
 }
 
 // #endregion /PATCH /subscriptions/{subscriptionId}/usage-reports/{usageReportId}
