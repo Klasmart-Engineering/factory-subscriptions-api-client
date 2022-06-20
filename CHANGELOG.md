@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.6](https://github.com/KL-Engineering/factory-subscriptions-api-client/branches/compare/v0.0.6%0Dv0.0.5) (2022-06-20)
+
+
+### 📦 Refactor
+
+* enable is built in ([25d6d18](https://github.com/KL-Engineering/factory-subscriptions-api-client/commits/25d6d18d0fa885123cb44a892a121dca9770f071))
+
 ### [0.0.5](https://github.com/KL-Engineering/factory-subscriptions-api-client/branches/compare/v0.0.5%0Dv0.0.4) (2022-06-20)
 
 
