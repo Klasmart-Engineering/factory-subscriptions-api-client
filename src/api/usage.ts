@@ -130,14 +130,7 @@ export const PATCH_SUBSCRIPRTION_USAGE_REPORT_BY_ID_QUERY_KEY: QueryKey = `patch
 
 export function usePatchSubscriptionUsageReportById (request: PatchSubscriptionUsageReportByIdRequest, options?: RequestConfigQueryOptions<PatchSubscriptionUsageReportByIdResponse>) {
     const { axiosClient } = useSubscriptionsApiClient();
-    return useQuery([
-        PATCH_SUBSCRIPRTION_USAGE_REPORT_BY_ID_QUERY_KEY,
-        request,
-        {
-            refetchOnWindowFocus: false,
-            enabled: false, // disable this query from automatically running
-        },
-    ], () => patchSubscriptionUsageReportById(axiosClient, request, options?.config), options?.queryOptions);
+    return useQuery([ PATCH_SUBSCRIPRTION_USAGE_REPORT_BY_ID_QUERY_KEY, request ], () => patchSubscriptionUsageReportById(axiosClient, request, options?.config), options?.queryOptions);
 }
 
 // #endregion /PATCH /subscriptions/{subscriptionId}/usage-reports/{usageReportId}
