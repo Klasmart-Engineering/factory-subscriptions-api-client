@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.5](https://github.com/KL-Engineering/factory-subscriptions-api-client/branches/compare/v0.0.5%0Dv0.0.4) (2022-06-20)
+
+
+### 📦 Refactor
+
+* update report usage state ([a780afd](https://github.com/KL-Engineering/factory-subscriptions-api-client/commits/a780afd68bd244d0b7e71a2c53ff7a0325c64cfc))
+
 ### [0.0.4](https://github.com/KL-Engineering/factory-subscriptions-api-client/branches/compare/v0.0.4%0Dv0.0.3) (2022-06-14)
 
 
