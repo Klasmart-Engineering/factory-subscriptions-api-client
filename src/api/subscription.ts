@@ -14,6 +14,11 @@ import {
     useQuery,
 } from "react-query";
 
+export enum SubscriptionState {
+    ACTIVE = `active`,
+    DISABLED = `disabled`
+}
+
 // #region /GET /subscriptions/{subscriptionId}
 
 export interface GetSubscriptionRequest extends BaseRequest {
@@ -23,7 +28,7 @@ export interface GetSubscriptionRequest extends BaseRequest {
 export interface GetSubscriptionResponse extends BaseResponse {
     subscription_id: string;
     account_id: string;
-    state: string;
+    state: SubscriptionState;
     created_on: number;
 }
 
