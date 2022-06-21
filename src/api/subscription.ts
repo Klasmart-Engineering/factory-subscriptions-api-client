@@ -57,6 +57,7 @@ export function useGetSubscription (request: GetSubscriptionRequest, options?: R
 
 export interface PatchSubscriptionRequest extends BaseRequest {
     subscriptionId: string;
+    state: SubscriptionState;
 }
 
 export interface PatchSubscriptionResponse extends BaseResponse {
