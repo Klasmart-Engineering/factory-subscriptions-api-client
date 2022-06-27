@@ -1,9 +1,5 @@
 import { useSubscriptionsApiClient } from "../core";
-import {
-    BaseRequest,
-    BaseResponse,
-    RequestConfigQueryOptions,
-} from "./shared";
+import { RequestConfigQueryOptions } from "./shared";
 import {
     AxiosInstance
     ,
@@ -14,10 +10,10 @@ import {
     useQuery,
 } from "react-query";
 
-export interface HealthRequest extends BaseRequest {
-}
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+export interface HealthRequest {}
 
-export interface HealthResponse extends BaseResponse {
+export interface HealthResponse {
     agents: {};
     now: string;
     status: string;

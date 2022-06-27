@@ -1,9 +1,5 @@
 import { useSubscriptionsApiClient } from "../core";
-import {
-    BaseRequest,
-    BaseResponse,
-    RequestConfigQueryOptions,
-} from "./shared";
+import { RequestConfigQueryOptions } from "./shared";
 import {
     AxiosInstance
     ,
@@ -21,11 +17,11 @@ export enum SubscriptionState {
 
 // #region /GET /subscriptions/{subscriptionId}
 
-export interface GetSubscriptionRequest extends BaseRequest {
+export interface GetSubscriptionRequest {
     subscriptionId: string;
 }
 
-export interface GetSubscriptionResponse extends BaseResponse {
+export interface GetSubscriptionResponse {
     subscription_id: string;
     account_id: string;
     state: SubscriptionState;
@@ -55,13 +51,13 @@ export function useGetSubscription (request: GetSubscriptionRequest, options?: R
 
 // #region /PATCH /subscriptions/{subscriptionId}
 
-export interface PatchSubscriptionRequest extends BaseRequest {
+export interface PatchSubscriptionRequest {
     subscriptionId: string;
     state: SubscriptionState;
 }
 
-export interface PatchSubscriptionResponse extends BaseResponse {
-}
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+export interface PatchSubscriptionResponse {}
 
 export async function patchSubscription (client: AxiosInstance, request: PatchSubscriptionRequest, config?: AxiosRequestConfig) {
     const { subscriptionId, ...rest } = request;
@@ -86,12 +82,12 @@ export function usePatchSubscription (request: PatchSubscriptionRequest, options
 
 // #region /DELETE /subscriptions/{subscriptionId}
 
-export interface DeleteSubscriptionRequest extends BaseRequest {
+export interface DeleteSubscriptionRequest {
     subscriptionId: string;
 }
 
-export interface DeleteSubscriptionResponse extends BaseResponse {
-}
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+export interface DeleteSubscriptionResponse {}
 
 export async function deleteSubscription (client: AxiosInstance, request: DeleteSubscriptionRequest, config?: AxiosRequestConfig) {
     const { subscriptionId, ...rest } = request;

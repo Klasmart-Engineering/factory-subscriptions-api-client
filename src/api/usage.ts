@@ -1,9 +1,5 @@
 import { useSubscriptionsApiClient } from "../core";
-import {
-    BaseRequest,
-    BaseResponse,
-    RequestConfigQueryOptions,
-} from "./shared";
+import { RequestConfigQueryOptions } from "./shared";
 import {
     AxiosInstance
     ,
@@ -22,17 +18,17 @@ export enum UsageReportState {
 
 // #region /GET /subscriptions/{subscriptionId}/usage-reports
 
-export interface GetSubscriptionUsageReportsRequest extends BaseRequest {
+export interface GetSubscriptionUsageReportsRequest {
     subscriptionId: string;
 }
 
-export interface GetSubscriptionUsageReportsResponse extends BaseResponse {
-    [key: number]: {
-          id: string;
-          from: number;
-          to: number;
-    };
+interface SubscriptionUsageReport {
+    id: string;
+    from: number;
+    to: number;
 }
+
+export interface GetSubscriptionUsageReportsResponse extends Array<SubscriptionUsageReport>{}
 
 export async function getSubscriptionUsageReports (client: AxiosInstance, request: GetSubscriptionUsageReportsRequest, config?: AxiosRequestConfig) {
     const { subscriptionId, ...rest } = request;
@@ -57,12 +53,12 @@ export function useGetSubscriptionUsageReports (request: GetSubscriptionUsageRep
 
 // #region /GET /subscriptions/{subscriptionId}/usage-reports/{usageReportId}
 
-export interface GetSubscriptionUsageReportByIdRequest extends BaseRequest {
+export interface GetSubscriptionUsageReportByIdRequest {
     subscriptionId: string;
     usageReportId: string;
 }
 
-export interface GetSubscriptionUsageReportByIdResponse extends BaseResponse {
+export interface GetSubscriptionUsageReportByIdResponse {
     id: string;
     from: number;
     to: number;
