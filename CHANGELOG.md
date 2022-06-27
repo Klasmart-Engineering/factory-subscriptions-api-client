@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.8](https://github.com/KL-Engineering/factory-subscriptions-api-client/branches/compare/v0.0.8%0Dv0.0.7) (2022-06-21)
+
+
+### ♻️ Chores
+
+* udpate patch sub request ([cc79b9c](https://github.com/KL-Engineering/factory-subscriptions-api-client/commits/cc79b9cb686a8a4a3e735f8cfd2e3aa54dbc8d8c))
+
 ### [0.0.7](https://github.com/KL-Engineering/factory-subscriptions-api-client/branches/compare/v0.0.7%0Dv0.0.6) (2022-06-21)
 
 
