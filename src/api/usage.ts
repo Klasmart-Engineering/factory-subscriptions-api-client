@@ -96,13 +96,13 @@ export function useGetSubscriptionUsageReportById (request: GetSubscriptionUsage
 
 // #region /PATCH /subscriptions/{subscriptionId}/usage-reports/{usageReportId}
 
-export interface PatchSubscriptionUsageReportByIdRequest extends BaseRequest {
+export interface PatchSubscriptionUsageReportByIdRequest {
     subscriptionId: string;
     usageReportId: string;
     state: UsageReportState;
 }
 
-export interface PatchSubscriptionUsageReportByIdResponse extends BaseResponse {
+export interface PatchSubscriptionUsageReportByIdResponse {
     state: UsageReportState;
 }
 
