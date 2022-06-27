@@ -27,11 +27,11 @@ export interface GetSubscriptionUsageReportsRequest extends BaseRequest {
 }
 
 export interface GetSubscriptionUsageReportsResponse extends BaseResponse {
-    reports: {
+    [key: number]: {
           id: string;
           from: number;
           to: number;
-    }[];
+    };
 }
 
 export async function getSubscriptionUsageReports (client: AxiosInstance, request: GetSubscriptionUsageReportsRequest, config?: AxiosRequestConfig) {
