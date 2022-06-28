@@ -22,7 +22,7 @@ export interface GetSubscriptionRequest {
 }
 
 export interface GetSubscriptionResponse {
-    subscription_id: string;
+    id: string;
     account_id: string;
     state: SubscriptionState;
     created_on: number;
