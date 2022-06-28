@@ -62,11 +62,9 @@ export interface PatchSubscriptionResponse {}
 export async function patchSubscription (client: AxiosInstance, request: PatchSubscriptionRequest, config?: AxiosRequestConfig) {
     const { subscriptionId, ...rest } = request;
     const resp = await client.patch<PatchSubscriptionResponse>(`/subscriptions/${subscriptionId}`, {
+        ...rest,
+    }, {
         ...config,
-        params: {
-            ...rest,
-            ...config?.params,
-        },
     });
     return resp.data;
 }
